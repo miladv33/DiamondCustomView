@@ -6,7 +6,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/diamond_root"
-    android:paddingEnd="20dp"
     >
 
 
@@ -14,9 +13,9 @@
         android:id="@+id/first_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/diamond"
-        app:layout_constraintEnd_toEndOf="@+id/purple_background"
+        app:layout_constraintStart_toStartOf="@+id/purple_background"
         app:layout_constraintTop_toTopOf="@+id/purple_background"
         app:layout_constraintVertical_bias="0.148"
         app:srcCompat="@drawable/ic_second_diamond_line" />
@@ -48,6 +47,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="20dp"
         app:srcCompat="@drawable/ic_badges_diamond_bk_purple" />
 
     <ImageView
@@ -57,6 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="invisible"
+        android:layout_marginEnd="20dp"
         app:srcCompat="@drawable/ic_badges_diamond_bk_purple"
         app:tint="@color/mainBackground" />
 

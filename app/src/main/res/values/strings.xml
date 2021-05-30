@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DimondCustomViewAnimation</string>
+    <string name="start_play_pro_text">To get in sooner, become </string>
+    <string name="end_play_pro_text"> </string>
 </resources>

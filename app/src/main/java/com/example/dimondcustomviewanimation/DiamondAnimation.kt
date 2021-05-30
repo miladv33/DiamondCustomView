@@ -42,7 +42,7 @@ class DiamondAnimation(var diamondAnimationProperties: DiamondAnimationPropertie
             firstLine = findViewById(R.id.first_line)
             secondLine = findViewById(R.id.second_line)
             thirdLine = findViewById(R.id.third_line)
-            val delay = 70L
+            val delay = 100L
             changeSizeAnimation(firstLine!!,diamondAnimationProperties.diamondInterpolator, delay)
             changeSizeAnimation(secondLine!!,diamondAnimationProperties.diamondInterpolator, delay)
             changeSizeAnimation(thirdLine!!,diamondAnimationProperties.diamondInterpolator, delay,object :Animator.AnimatorListener{
@@ -74,7 +74,7 @@ class DiamondAnimation(var diamondAnimationProperties: DiamondAnimationPropertie
         val whiteDiamond = view.findViewById<View>(R.id.diamond)
         val purpleDiamond = view.findViewById<View>(R.id.purple_diamond)
         whiteBackGround.fadeIn()
-        purpleBackGround.fadOut()
+//        purpleBackGround.fadOut()
         purpleDiamond.fadeIn()
         whiteDiamond.fadOut()
 

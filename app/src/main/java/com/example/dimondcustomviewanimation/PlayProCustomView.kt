@@ -11,11 +11,14 @@ class PlayProCustomView(context: Context, attributeSet: AttributeSet) :
     ConstraintLayout(context, attributeSet) {
     var view: View = LayoutInflater.from(context).inflate(R.layout.play_pro_custom_view, this, true)
     private var diamondAnimationProperties: DiamondAnimationProperties? = null
-    fun setup(diamondAnimationProperties: DiamondAnimationProperties) {
+    fun setup(
+        diamondAnimationProperties: DiamondAnimationProperties, proTextProperties: ProTextProperties) {
         if (this.diamondAnimationProperties != null) return // prevent call the method again
         this.diamondAnimationProperties = diamondAnimationProperties
         val diamondCustomView = view.findViewById<DiamondCustomView>(R.id.diamondCustomView)
         val textView = view.findViewById<ProTextCustomView>(R.id.textView)
+        textView.layoutParams.width = (proTextProperties.screenSize * proTextProperties.viewWith).toInt()
+        textView.setText(proTextProperties,diamondAnimationProperties.isRTL)
         diamondCustomView.setup(diamondAnimationProperties, object : IAnimationDone {
             override fun done() {
                 changeSizeAnimation(textView, diamondAnimationProperties.textInterpolator, 0)

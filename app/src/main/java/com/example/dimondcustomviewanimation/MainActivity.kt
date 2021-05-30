@@ -1,17 +1,7 @@
 package com.example.dimondcustomviewanimation
 
-import android.animation.Animator
-import android.animation.ValueAnimator
-import android.content.Context
-import android.graphics.Point
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.view.animation.Animation
-import android.view.animation.TranslateAnimation
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
@@ -22,20 +12,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val button = findViewById<Button>(R.id.button)
         val playProCustomView = findViewById<PlayProCustomView>(R.id.play_pro_customView)
-        var animationProperties = DiamondAnimationProperties.Fast
-        var language = Locale.getDefault().displayLanguage;
+        val animationProperties = DiamondAnimationProperties.Fast
+        val proTextProperties = ProTextProperties.RELATIVE_TO_SCREEN
+        val language = Locale.getDefault().displayLanguage;
+        val size  = getScreenSize(this)
         if (language == "English") {
-            animationProperties.startX = -300
+            animationProperties.startX = +600
+            animationProperties.isRTL = false
+            proTextProperties.textSize = 0.017F
+            proTextProperties.viewWith = 0.78F
+            proTextProperties.startTextMargin = 0.04F
+
         } else {
-            animationProperties.startX = 300
+            animationProperties.startX = -600
+            animationProperties.isRTL = true
+            proTextProperties.textSize = 0.016F
+            proTextProperties.viewWith = 0.75F
+            proTextProperties.startTextMargin = 0.08F
         }
-//        animationProperties.startX = if ()
+        size?.let {
+            proTextProperties.screenSize = it.width.toFloat()
+        }
+        proTextProperties.startText = getString(R.string.start_play_pro_text)
+        proTextProperties.endText = getString(R.string.end_play_pro_text)
         button.setOnClickListener {
-            playProCustomView.setup(DiamondAnimationProperties.Fast)
-//          
+            playProCustomView.setup(DiamondAnimationProperties.Fast,proTextProperties)
         }
-
     }
-
-   
 }

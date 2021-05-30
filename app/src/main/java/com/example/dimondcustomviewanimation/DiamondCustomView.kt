@@ -16,6 +16,11 @@ class DiamondCustomView(context: Context, attributeSet: AttributeSet) :
         this.diamondAnimationProperties = diamondAnimationProperties
         if (diamondAnimation == null)
             diamondAnimation = DiamondAnimation(diamondAnimationProperties)
+        if (!diamondAnimationProperties.isRTL) {
+            view.findViewById<View>(R.id.first_line).rotation = 180F
+            view.findViewById<View>(R.id.second_line).rotation = 180F
+            view.findViewById<View>(R.id.third_line).rotation = 180F
+        }
         startAnimation(iAnimationDone)
     }
 

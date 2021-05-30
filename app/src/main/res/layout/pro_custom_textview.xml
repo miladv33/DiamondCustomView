@@ -4,8 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/podbox_white_button_border_is_toolbar_selector"
+    android:layoutDirection="locale"
     >
 
     <TextView
@@ -16,10 +17,12 @@
         android:maxLines="1"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:paddingEnd="10dp"
+        android:text="TextView 2"
+        android:textColor="@color/palletMajorelleBlue"
+        android:textSize="50px"
         android:paddingStart="5dp"
-        android:text="TextViewText"
-        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/diamondImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,22 +31,25 @@
         android:layout_width="20dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/endTextView"
-        app:layout_constraintEnd_toStartOf="@+id/endTextView"
+        app:layout_constraintStart_toEndOf="@+id/startTextView"
         app:layout_constraintTop_toTopOf="@+id/endTextView"
+        app:layout_goneMarginEnd="0dp"
+        android:layout_marginStart="5dp"
         app:srcCompat="@drawable/ic_business_diamond"
-        app:tint="@color/black" />
+        app:tint="@color/palletMajorelleBlue" />
 
     <TextView
         android:id="@+id/startTextView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="60dp"
-        android:gravity="center"
-        android:paddingEnd="5dp"
-        android:text="TextView"
-        android:textSize="20sp"
+        android:gravity="end|center"
+        android:maxLines="1"
+        android:paddingStart="10dp"
+        android:text="TextView1"
+        android:textColor="@color/palletMajorelleBlue"
+        android:textSize="50px"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/diamondImageView"
-        app:layout_constraintEnd_toStartOf="@+id/diamondImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/diamondImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
