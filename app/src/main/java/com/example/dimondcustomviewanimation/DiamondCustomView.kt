@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class DiamondCustomView(context: Context, attributeSet: AttributeSet) :
@@ -20,7 +21,13 @@ class DiamondCustomView(context: Context, attributeSet: AttributeSet) :
             view.findViewById<View>(R.id.first_line).rotation = 180F
             view.findViewById<View>(R.id.second_line).rotation = 180F
             view.findViewById<View>(R.id.third_line).rotation = 180F
+            (view.findViewById<View>(R.id.purple_background).layoutParams as ConstraintLayout.LayoutParams).setMargins(0,0,diamondAnimationProperties.endX,0)
+            (view.findViewById<View>(R.id.white_background).layoutParams as ConstraintLayout.LayoutParams).setMargins(0,0,diamondAnimationProperties.endX,0)
+        } else {
+            (view.findViewById<View>(R.id.purple_background).layoutParams as ConstraintLayout.LayoutParams).setMargins(diamondAnimationProperties.endX, 0, 0, 0)
+            (view.findViewById<View>(R.id.white_background).layoutParams as ConstraintLayout.LayoutParams).setMargins(diamondAnimationProperties.endX, 0, 0, 0)
         }
+
         startAnimation(iAnimationDone)
     }
 

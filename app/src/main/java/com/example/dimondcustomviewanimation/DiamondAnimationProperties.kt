@@ -12,7 +12,8 @@ enum class DiamondAnimationProperties(
     var diamondInterpolator: Interpolator,
     var textInterpolator: Interpolator,
     var startX: Int,
-    var isRTL:Boolean
+    var isRTL:Boolean,
+    var endX:Int
 ) {
-    Fast(1000, 1000, 1000, FastOutSlowInInterpolator(), FastOutSlowInInterpolator(), -300,false)
+    Fast(1000, 1000, 1000, FastOutSlowInInterpolator(), FastOutSlowInInterpolator(), -300,false,0)
 }

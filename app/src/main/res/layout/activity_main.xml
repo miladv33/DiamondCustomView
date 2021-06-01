@@ -20,8 +20,7 @@
     <com.example.dimondcustomviewanimation.PlayProCustomView
         android:id="@+id/play_pro_customView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

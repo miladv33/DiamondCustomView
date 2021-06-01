@@ -7,28 +7,33 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+    lateinit var button: Button
+    lateinit var playProCustomView: PlayProCustomView
+    var margin = 0.10F
+    val language = Locale.getDefault().displayLanguage;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val button = findViewById<Button>(R.id.button)
-        val playProCustomView = findViewById<PlayProCustomView>(R.id.play_pro_customView)
+        val size = getScreenSize(this)
+        button = findViewById(R.id.button)
+        playProCustomView = findViewById(R.id.play_pro_customView)
         val animationProperties = DiamondAnimationProperties.Fast
         val proTextProperties = ProTextProperties.RELATIVE_TO_SCREEN
-        val language = Locale.getDefault().displayLanguage;
-        val size  = getScreenSize(this)
         if (language == "English") {
             animationProperties.startX = +600
+            animationProperties.endX = (size?.width?.times(margin))?.toInt()?:0
             animationProperties.isRTL = false
-            proTextProperties.textSize = 0.017F
-            proTextProperties.viewWith = 0.78F
-            proTextProperties.startTextMargin = 0.04F
+            proTextProperties.textSize = 0.02F
+            proTextProperties.viewWith = 0.66F + margin/2
+            proTextProperties.startTextMargin = 0.07F
 
         } else {
             animationProperties.startX = -600
+            animationProperties.endX =  (size?.width?.times(margin))?.toInt()?:0
             animationProperties.isRTL = true
-            proTextProperties.textSize = 0.016F
-            proTextProperties.viewWith = 0.75F
-            proTextProperties.startTextMargin = 0.08F
+            proTextProperties.textSize = 0.019F
+            proTextProperties.viewWith = 0.62F + margin/2
+            proTextProperties.startTextMargin = 0.07F
         }
         size?.let {
             proTextProperties.screenSize = it.width.toFloat()
@@ -36,7 +41,9 @@ class MainActivity : AppCompatActivity() {
         proTextProperties.startText = getString(R.string.start_play_pro_text)
         proTextProperties.endText = getString(R.string.end_play_pro_text)
         button.setOnClickListener {
-            playProCustomView.setup(DiamondAnimationProperties.Fast,proTextProperties)
+            playProCustomView.setup(DiamondAnimationProperties.Fast, proTextProperties)
         }
     }
+
+
 }

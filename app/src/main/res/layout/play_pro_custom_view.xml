@@ -16,6 +16,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:maxLines="1"
+
         android:text="Hello World!fdfdfdfdfdf"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/diamondCustomView"
@@ -36,7 +37,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@id/diamondCustomView"
         app:layout_constraintEnd_toEndOf="@id/diamondCustomView"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@id/diamondCustomView"
         app:layout_constraintTop_toTopOf="@id/diamondCustomView" />
 

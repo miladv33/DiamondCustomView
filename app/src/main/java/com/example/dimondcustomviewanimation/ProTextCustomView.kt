@@ -1,6 +1,7 @@
 package com.example.dimondcustomviewanimation
 
 import android.content.Context
+import android.renderscript.ScriptGroup
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.TextView
