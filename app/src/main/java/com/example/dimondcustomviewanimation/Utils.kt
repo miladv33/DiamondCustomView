@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.view.WindowManager
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
@@ -165,5 +166,23 @@ fun changeSizeAnimation(viewToIncreaseHeight: View, interpolator: Interpolator, 
     anim.startDelay = delay
     anim.duration = 1000
     anim.start()
+}
+
+fun View.measureViewSizeInRunTIme(onGlobalLayoutMeasured: OnGlobalLayoutMeasured) {
+    val viewTreeObserver: ViewTreeObserver = viewTreeObserver
+    if (viewTreeObserver.isAlive) {
+        viewTreeObserver.addOnGlobalLayoutListener(object :
+            ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                if (viewTreeObserver.isAlive) {
+                    viewTreeObserver.removeOnGlobalLayoutListener(this)
+                }
+                if (tag == null) {
+                    onGlobalLayoutMeasured.onMeasured(width, height)
+                    tag = 1
+                }
+            }
+        })
+    }
 }
 
